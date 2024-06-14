@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/core/clear_popping_service.dart';
 import 'package:bmi_calculator/core/get_result_sp_service.dart';
 import 'package:bmi_calculator/shared/theme_colors.dart';
 import 'package:bmi_calculator/shared/theme_text_styles.dart';
@@ -33,8 +34,10 @@ class SettingsScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: AppBar1(
-                      onProfilePressed: () {
-                        Get.off(()=>DashBoardScreen());
+                      onProfilePressed: ()async{
+                        ///Clearing data while navigating to DashBoardScreen.
+                        clearDataWhilePopping();
+                        await Get.off(()=> DashBoardScreen());
                       },
                       onSettingsPressed: () {
                         Get.off(()=> SettingsScreen());
@@ -71,7 +74,7 @@ class SettingsScreen extends StatelessWidget {
                     CustomButton(
                       onPressed: ()async{
                         await getResults();
-                        Get.off(()=> SavedResultsScreen());
+                        Get.to(()=> SavedResultsScreen());
                       },
                       title: "Saved results >",
                       bgColor: themeColors.primaryColor.value,

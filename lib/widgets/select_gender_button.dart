@@ -25,10 +25,10 @@ class SelectGenderButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
             boxShadow: [
               BoxShadow(
-                color: themeColors.secondaryColor.value,
+                color: themeColors.blackColor.value.withOpacity(0.5),
                 blurRadius: 2,
-                spreadRadius: 3,
-                offset: const Offset(1, 2),
+                spreadRadius: 2,
+                offset: const Offset(1, 1),
               )
             ]
           ),

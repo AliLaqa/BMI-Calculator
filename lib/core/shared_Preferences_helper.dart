@@ -68,3 +68,6 @@ class sp_deleters {
     prefs.clear();
   }
 }
+
+///Example : Apply condition based on variable data type
+//if(variables.enterAgeTextController.value.text.trim() is String){ }

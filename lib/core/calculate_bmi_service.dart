@@ -9,16 +9,20 @@ calculateBMI() {
 
   if (variables.selectedGender.isNotEmpty &&
       variables.formKey.value.currentState!.validate()) {
-    print('Gender selected and Input is valid');
+    if (kDebugMode) {
+      print('Gender selected and Input is valid');
+    }
 
     ///Proceed with functionality
     //Calculate BMI
-    print("\nselectedGender: ${variables.selectedGender.value}, \n"
+    if (kDebugMode) {
+      print("\nselectedGender: ${variables.selectedGender.value}, \n"
         "selectedWeightType : ${variables.selectedWeightType.value}, "
         "enterWeightTextController : ${variables.enterWeightTextController.value.text}, \n"
         "enterAgeTextController : ${variables.enterAgeTextController.value.text}, \n"
         "selectedHeightType : ${variables.selectedHeightType.value}, "
         "enterHeightTextController : ${variables.enterHeightTextController.value.text}\n\n");
+    }
 
     //Storing Weight as Int
     variables.weightInt.value =
@@ -49,11 +53,15 @@ calculateBMI() {
     ///Convert-Store meter to meter square(meter * 2)/(height * height)
     variables.heightMeterSqInt.value =
         variables.heightInt.value * variables.heightInt.value;
-    print("heightMeterSqInt : ${variables.heightMeterSqInt.value}");
+    if (kDebugMode) {
+      print("heightMeterSqInt : ${variables.heightMeterSqInt.value}");
+    }
 
     ///Store weight in kg
     variables.weightKgInt.value = variables.weightInt.value;
-    print("weightKgInt : ${variables.weightKgInt.value}\n");
+    if (kDebugMode) {
+      print("weightKgInt : ${variables.weightKgInt.value}\n");
+    }
 
     ///Calculate BMI (BMI = weight.kg / height.meterSq)
     variables.unformattedBMi.value =
@@ -65,14 +73,17 @@ calculateBMI() {
 
     ///Storing formatted BMI value
     variables.bMI.value = double.parse(variables.unformattedBMiString.value);
-    print("bMi : ${variables.bMI.value}");
+    if (kDebugMode) {
+      print("bMi : ${variables.bMI.value}");
+    }
 
     ///Navigate to ResultScreen
     Get.off(() => ResultScreen(selectedGender: variables.selectedGender.value));
   } else if (variables.selectedGender.isEmpty) {
     ///Empty Gender checker
     Get.snackbar("Gender not selected", "Please select your gender");
-    print(
-        "Gender not selected, selectedGender : ${variables.selectedGender.value}");
+    if (kDebugMode) {
+      print("Gender not selected, selectedGender : ${variables.selectedGender.value}");
+    }
   }
 }

@@ -12,6 +12,8 @@ import 'package:bmi_calculator/widgets/spacers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../core/clear_popping_service.dart';
+
 class DetailsScreen extends StatelessWidget {
   final String selectedGender;
   DetailsScreen({super.key, required this.selectedGender});
@@ -37,8 +39,10 @@ class DetailsScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(5.0),
               child: AppBar1(
-                onProfilePressed: () {
-                  Get.off(()=> DashBoardScreen());
+                onProfilePressed: ()async {
+                  ///Clearing data while navigating to DashBoardScreen.
+                  clearDataWhilePopping();
+                  await Get.off(()=> DashBoardScreen());
                 },
                 onSettingsPressed: () {
                   Get.off(()=> SettingsScreen());
