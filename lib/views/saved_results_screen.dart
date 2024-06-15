@@ -105,7 +105,7 @@ class SavedResultsScreen extends StatelessWidget {
                         ///Deleting List from sp
                         sp_deleters().spValueDelete("resultList$index");
                         ///Showing Snack-bar
-                        Get.snackbar("Deleted", "Result removed successfullt",
+                        Get.snackbar("Deleted", "Result removed successfully",
                         snackPosition: SnackPosition.BOTTOM,
                         );
                       },
