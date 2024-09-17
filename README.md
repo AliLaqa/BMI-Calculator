@@ -1,6 +1,6 @@
 # bmi_calculator
 
-A Vertigo Works BMI calculator.
+A BMI calculator.
 
 ## Getting Started
 
